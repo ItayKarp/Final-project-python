@@ -3,6 +3,8 @@ from typing import Dict
 from ..models import Book
 from ..schemas import BookCreate, BookUpdate, BookRead
 from fastapi import HTTPException
+from ..database import books
+
 
 BOOKS_PATH = './books'
 os.makedirs(BOOKS_PATH, exist_ok=True)
@@ -89,7 +91,7 @@ def delete_book(book_id: int) -> Dict[str, str|int]:
         raise HTTPException(status_code=404, detail="Book not found")
 
 def get_books():
-    return Books
+    return books.to_dict(orient='records')
 
 
 def create_file(book: Book | BookCreate):

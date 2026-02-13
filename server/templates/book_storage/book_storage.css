@@ -105,3 +105,26 @@ body {
 .menu-button:active {
     transform: translateY(1px);
 }
+#table {
+    display: flex !important;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 15vh;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    max-height: 70vh;  /* Set a max height for the table container */
+    overflow-y: auto;  /* Enable scrolling only within this container */
+}
+#table::-webkit-scrollbar {
+    width: 10px;
+}
+
+#table::-webkit-scrollbar-track {
+    background: rgba(245, 222, 179, 0.5);
+}
+
+#table::-webkit-scrollbar-thumb {
+    background: #5d4037;
+    border-radius: 5px;
+}

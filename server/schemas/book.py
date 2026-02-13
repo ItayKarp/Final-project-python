@@ -10,10 +10,12 @@ class BookUpdate(BaseModel):
     price : float | int = 0
 
 class BookRead(BaseModel):
-    id: int
+    book_id: int
     title: str
     author: str
+    year: int
     price: float
+    quantity: int
     is_available: bool
 
 class BookResponse(BaseModel):

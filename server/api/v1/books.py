@@ -1,7 +1,8 @@
 from fastapi import APIRouter
 from server.services import get_books, get_book, create_book, update_details, delete_book
 from server.schemas import BookCreate, BookRead, BookUpdate,BookResponse,BookDeleteResponse
-from typing import Dict
+from typing import Dict, List
+
 router = APIRouter(
     prefix="/books",
     tags=["books"],
@@ -12,7 +13,7 @@ async def get_book_details(book_id: int):
     return get_book(book_id)
 
 
-@router.get("/", response_model = Dict[int, BookRead])
+@router.get("/", response_model = List[BookRead])
 async def get_book_list():
     return get_books()
 

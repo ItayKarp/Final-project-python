@@ -56,17 +56,23 @@ async function getData(){
             const idCell = document.createElement('td')
             const titleCell = document.createElement('td')
             const authorCell = document.createElement('td')
+            const yearCell = document.createElement('td')
             const priceCell = document.createElement('td')
+            const quantityCell = document.createElement('td')
             const isAvailableCell = document.createElement('td')
-            idCell.textContent = key
+            idCell.textContent = parseInt(key) + 1
             titleCell.textContent = `${value['title']}`
             authorCell.textContent = `${value['author']}`
+            yearCell.textContent = `${value['year']}`
             priceCell.textContent = `${value['price']}$`
+            quantityCell.textContent = `${value['quantity']}`
             isAvailableCell.textContent = `${value['is_available']}`
             row.appendChild(idCell)
             row.appendChild(titleCell)
             row.appendChild(authorCell)
+            row.appendChild(yearCell)
             row.appendChild(priceCell)
+            row.appendChild(quantityCell)
             row.appendChild(isAvailableCell)
             tableBody.appendChild(row)
         }
