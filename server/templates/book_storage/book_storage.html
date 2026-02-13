@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Karpov's Bookshop</title>
+    <link rel="stylesheet" href="/templates/book_storage/book_storage.css">
+</head>
+<body>
+<div>
+    <div id="video-intro">
+  <video autoplay muted playsinline preload="auto">
+    <source src="templates/book_storage/transition_book_storage.mp4" type="video/mp4">
+    Your browser doesn't support HTML5 video.
+  </video>
+</div>
+<div id="main-content">
+    <div id="table">
+        <table id="dataTable">
+            <tr>
+                <th>ID Number</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Is Available</th>
+            </tr>
+        </table>
+    </div>
+</div>
+    <div class="button-container">
+        <button class="menu-button" onclick="window.location.href='/'">Main Menu</button>
+    </div>
+</div>
+<script src="/templates/book_storage/storage.js"></script>
+</body>
+</html>

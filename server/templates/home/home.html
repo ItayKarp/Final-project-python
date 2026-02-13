@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Karpov's Bookshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="templates/home/styles.css">
+</head>
+<body>
+<div>
+    <div id="video-intro">
+  <video autoplay muted playsinline preload="auto">
+    <source src="templates/home/intro2.mp4" type="video/mp4">
+    Your browser doesn't support HTML5 video.
+  </video>
+</div>
+    <div id="main-content">
+    <div class="magic-container">
+    <div class="book-menu">
+    <button class="hp-button" onclick="location.href='/storage'">
+        <img src="templates/book_storage/book_list.png" alt="icon" class="button-icon">
+    </button>
+
+    <button class="hp-button" onclick="location.href='/bookDetails'">
+        <img src="templates/book_info/get_book_information.PNG" alt="icon" class="button-icon">
+    </button>
+
+    <button class="hp-button" onclick="location.href='/create'">
+        <img src="templates/create_book/create_book.PNG" alt="icon" class="button-icon">
+    </button>
+
+    <button class="hp-button" onclick="location.href='/update'">
+        <img src="templates/update/update_book_details.PNG" alt="icon" class="button-icon">
+    </button>
+
+    <button class="hp-button" onclick="location.href='/delete'">
+        <img src="templates/delete/delete_from_storage.PNG" alt="icon" class="button-icon">
+    </button>
+
+</div>
+</div>
+</div>
+</div>
+<script src="templates/home/functionality.js"></script>
+</body>
+</html>

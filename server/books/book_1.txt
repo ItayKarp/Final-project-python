@@ -1,0 +1,5 @@
+ID:1
+Title:Yonatan's Life
+Author:Yonatan Hadad
+Price:19.99
+Is_Available:True

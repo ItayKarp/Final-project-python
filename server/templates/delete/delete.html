@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Karpov's Bookshop - Discard</title>
+    <link rel="stylesheet" href="templates/delete/delete.css">
+</head>
+<body>
+    <div id="video-intro">
+        <video autoplay muted playsinline preload="auto">
+            <source src="templates/delete/delete_book.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="main-wrapper" id="main-content">
+    <div class="delete_container">
+        <h1 class="shop-title">Karpov's Bookshop</h1>
+        <p class="subtitle">Remove a volume from the archives</p>
+
+        <form id="delete_form">
+            <div class="input-group">
+                <input type="number" id="delete_book" name="book_id" placeholder="Book ID Number" required>
+            </div>
+            <button type="submit" class="delete-btn">Exile from Storage</button>
+        </form>
+
+        <a href="/" class="menu-link">Return to Main Menu</a>
+    </div>
+</div>
+
+    <script src="templates/delete/delete.js"></script>
+</body>
+</html>

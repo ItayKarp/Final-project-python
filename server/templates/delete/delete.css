@@ -1,0 +1,151 @@
+/* 1. Base Styles & Centering */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'EB Garamond', serif;
+    overflow: hidden; /* Prevent scroll during video */
+}
+
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('delete_book.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e0d7c6; /* Light parchment color */
+}
+
+/* 2. Form Container Card */
+.delete_container {
+    background: rgba(20, 15, 10, 0.85); /* Deep dark brown/black */
+    padding: 3rem;
+    border: 1px solid #8e7341; /* Aged gold border */
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    backdrop-filter: blur(5px);
+}
+
+/* 3. Typography */
+.shop-title {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 2px;
+    color: #c5a059; /* Bright gold */
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-style: italic;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+/* 4. Input Styling */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #5a4a33;
+    color: #f4ece1;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #c5a059;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+}
+
+/* 5. Button Styling */
+.delete-btn {
+    width: 100%;
+    padding: 12px;
+    background: #c5a059;
+    color: #1a150f;
+    border: none;
+    font-family: 'EB Garamond', serif;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #e2bc74;
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+    transform: translateY(-1px);
+}
+
+.delete-btn:active {
+    transform: translateY(1px);
+}
+
+/* 6. Video Overlay (Keeping your original logic) */
+#video-intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+}
+
+#video-intro video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ... existing styles ... */
+
+.menu-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 10px 20px;
+    color: #c5a059;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    transition: all 0.4s ease;
+}
+
+.menu-link:hover {
+    background: rgba(197, 160, 89, 0.1);
+    border-color: #c5a059;
+    letter-spacing: 3px; /* Subtle "expanding" effect on hover */
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.1);
+}
+
+/* Ensure the container stacks items vertically */
+.delete_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* ... rest of your existing container styles ... */
+}
+
+#delete_form {
+    width: 100%;
+}

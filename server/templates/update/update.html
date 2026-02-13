@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Karpov's Bookshop</title>
+  <link rel="stylesheet" href="templates/update/update.css">
+</head>
+<body>
+<div id="video-intro">
+  <video autoplay muted playsinline preload="auto">
+    <source src="templates/update/update.mp4" type="video/mp4">
+    Your browser doesn't support HTML5 video.
+  </video>
+</div>
+<div id="main-content">
+  <form id="params-form">
+    <div>
+      <input type="number" id="book_id" placeholder="ID Number" required>
+    </div>
+    <div class="book-params">
+      <input type="text" id="book-title" placeholder="Harry Potter" required>
+    </div>
+    <div class="book-params">
+      <input type="text" id="book-author" placeholder="JK Rolling" required>
+    </div>
+    <div class="book-params">
+      <input type="number" id="book-price" placeholder="14.99$" step="0.01" required>
+    </div>
+    <div>
+      <button type="submit">Update</button>
+    </div>
+  </form>
+  <button id="home-button" onclick="window.location.href='/'">Main Menu</button>
+</div>
+<script src="templates/update/update.js"></script>
+</body>
+</html>

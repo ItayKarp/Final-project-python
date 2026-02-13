@@ -1,0 +1,83 @@
+/* 1. Intro Video */
+#video-intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 9999;
+}
+
+#video-intro video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 2. Prevent Scrolling */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden !important; /* Forces no scroll */
+}
+
+body {
+    background-image: url('menu.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 3. Position Menu */
+.book-menu {
+    position: relative;
+    top: 70vh;
+    left: 5vw;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0;           /* Ensures no vertical space between flex items */
+    z-index: 10;
+    width: fit-content;
+}
+
+.hp-button {
+    background: none;
+    border: none;
+    padding: 0;       /* Removes internal button padding */
+    margin: 0;        /* Removes external button margins */
+    margin-bottom: 1vh; /* Adds spacing between books */
+    cursor: pointer;
+    line-height: 0;   /* Removes the space reserved for text below images */
+    display: block;   /* Ensures the button behaves as a block for the image */
+    transition: transform 0.1s ease; /* Snappier transition for the indent */
+    outline: none;
+    font-size: 0;
+}
+
+.button-icon {
+    display: block;   /* Removes the inline-block baseline gap */
+    height: 8vh;     /* Reduced from 10vh */
+    width: auto;      /* Maintains aspect ratio */
+    margin: 0;
+    padding: 0;
+}
+
+/* The Indent Effect */
+.hp-button:hover {
+    /* Moves the button slightly right and down to look "pressed" into the page */
+    transform: translate(4px, 2px);
+    filter: brightness(0.9);
+}
+
+.hp-button:active {
+    transform: translate(8px, 4px);
+}
+.book-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}

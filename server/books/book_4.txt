@@ -1,0 +1,5 @@
+ID:4
+Title:Itay's Life
+Author:Itay Karpov
+Price:24.99
+Is_Available:True

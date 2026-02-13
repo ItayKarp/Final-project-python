@@ -1,0 +1,177 @@
+#video-intro {
+  position: fixed; /* Fixed ensures it stays relative to the browser window */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#video-intro video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover; /* This makes sure the video covers the screen without stretching */
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  /* Use 'hidden' initially for the video, JS will switch it to 'auto' */
+  overflow: hidden;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling during the intro */
+  background-color: #000;
+}
+
+.book-viewport {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('get_book.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Positioning on the LEFT page where the text was in your image */
+#id_format_container, #result_display {
+    position: absolute;
+    top: 35%;  /* Move up/down to align with lines */
+    left: 35%; /* Centered on the left page */
+    transform: translate(-50%, 0) rotate(-1deg);
+    width: 20%;
+    text-align: left; /* Align left to match book text */
+    pointer-events: auto;
+}
+
+#id_format {
+    pointer-events: auto;
+}
+
+/* Clean, borderless input */
+#book_id {
+    background: rgba(243, 229, 171, 0.7); /* Semi-transparent parchment */
+    border: 2px solid #5d4037;
+    font-family: 'Georgia', serif;
+    font-size: 1.4rem;
+    color: #3e2b1c;
+    width: 100%;
+    outline: none;
+    margin-bottom: 15px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Focus state - make it clear when user is typing */
+#book_id:focus {
+    background: rgba(243, 229, 171, 1); /* Full opacity when focused */
+    border-color: #3e2b1c;
+    box-shadow: 0 0 8px rgba(62, 43, 28, 0.4);
+}
+
+/* Placeholder styling */
+#book_id::placeholder {
+    color: rgba(62, 43, 28, 0.6);
+    font-style: italic;
+}
+
+#id_format button {
+    background-color: #f3e5ab;
+    border: 3px solid #5d4037;
+    color: #5d4037;
+    font-family: 'Serif', 'Palatino', 'Georgia', serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#id_format button:hover {
+    background-color: #e5d392;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#id_format button:active {
+    transform: translateY(1px);
+}
+
+/* Result text styling - matches button style */
+#result_display {
+    background-color: #f3e5ab;
+    border: 3px solid #5d4037;
+    padding: 15px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#result_display h2, #result_display p {
+    margin: 8px 0;
+    font-family: 'Serif', 'Palatino', 'Georgia', serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #5d4037;
+    border: none; /* Ensure no borders/dots appear */
+}
+
+/* Intro Video Overlay stays fixed */
+#video-intro {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #000;
+  z-index: 9999;
+  pointer-events: none; /* Don't block interaction with elements behind it */
+}
+
+/* Container to position the button at the bottom right of the screen */
+.button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* The styled button */
+.menu_button {
+    background-color: #f3e5ab; /* Parchment/Tan color from the table */
+    color: #5d4037;            /* Dark brown text */
+    font-family: 'Serif', 'Palatino', 'Georgia', serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border: 3px solid #5d4037; /* Thick brown border like the table header */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    text-decoration: none;      /* In case you keep it as an <a> tag */
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* Hover effects for interactivity */
+.menu-button:hover {
+    background-color: #e5d392;
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+.menu-button:active {
+    transform: translateY(1px);
+}

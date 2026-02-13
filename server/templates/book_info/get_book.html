@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Karpov's Bookshop</title>
+    <link rel="stylesheet" href="templates/book_info/get_book.css">
+</head>
+<body>
+<div class="book-viewport">
+    <div id="video-intro">
+  <video autoplay muted playsinline preload="auto">
+    <source src="templates/book_info/get_book.mp4" type="video/mp4">
+    Your browser doesn't support HTML5 video.
+  </video>
+</div>
+<div id="id_format_container">
+    <form id="id_format">
+        <label for="book_id" class="visually-hidden">Enter Book ID Number</label>
+        <input type="number" id="book_id" placeholder="ID Number">
+        <button type="submit">Search</button>
+    </form>
+</div>
+<div id="result_display" style="display: none;">
+    <h2 id="header"></h2>
+    <p id="title"></p>
+    <p id="author"></p>
+    <p id="price"></p>
+    <p id="is_available"></p>
+</div>
+    <div class="button-container">
+        <button class="menu_button" onclick="window.location.href='/'">Main Menu</button>
+    </div>
+</div>
+    <script src="templates/book_info/get_book.js"></script>
+</body>
+</html>
