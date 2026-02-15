@@ -32,18 +32,51 @@ body {
   object-fit: cover;
 }
 
-/* 3. Main Table Area */
+/* 3. Search Container */
+#search-container {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  background-color: rgba(245, 222, 179, 0.7);
+  margin-bottom: 10px;
+}
+
+#searchInput {
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  padding: 10px 15px;
+  width: 300px;
+  max-width: 90%;
+  border: 2px solid #5d4037;
+  border-radius: 5px;
+  background-color: #fffef5;
+  color: #3e2723;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #8d6e63;
+  background-color: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#searchInput::placeholder {
+  color: #a1887f;
+}
+
+/* 4. Main Table Area */
 #table {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 10vh;
   width: 100%;
-  height: 90vh; /* Prevents pushing page */
+  height: 80vh; /* Adjusted to account for search bar */
   overflow: hidden;
 }
 
-/* 4. Scroll Window (ONLY this scrolls) */
+/* 5. Scroll Window (ONLY this scrolls) */
 #table-scroll-container {
   height: 70vh;           /* Fixed height */
   overflow-y: auto;       /* Enable vertical scroll */
@@ -62,7 +95,7 @@ body {
   border-radius: 5px;
 }
 
-/* 5. Table Styling */
+/* 6. Table Styling */
 #dataTable {
   font-family: 'Georgia', serif;
   color: #3e2723;
@@ -92,7 +125,12 @@ body {
   text-align: center;
 }
 
-/* 6. Fixed Menu Button */
+/* Hide rows that don't match search */
+#dataTable tbody tr.hidden {
+  display: none;
+}
+
+/* 7. Fixed Menu Button */
 .button-container {
   position: fixed;
   bottom: 20px;

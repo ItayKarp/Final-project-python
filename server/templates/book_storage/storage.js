@@ -75,9 +75,38 @@ async function getData(){
             row.appendChild(isAvailableCell)
             tableBody.appendChild(row)
         }
+
+        // Initialize search functionality after data is loaded
+        initializeSearch();
     } catch (error){
         console.error(error.message)
     }
 
 }
+
+function initializeSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const dataTable = document.getElementById('dataTable');
+
+    if (!searchInput) return;
+
+    searchInput.addEventListener('keyup', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const rows = dataTable.querySelectorAll('tbody tr');
+
+        rows.forEach(row => {
+            // Get the title from the second cell (index 1)
+            const titleCell = row.cells[1];
+            const title = titleCell.textContent.toLowerCase();
+
+            // Check if title contains the search term
+            if (title.includes(searchTerm)) {
+                row.classList.remove('hidden');
+            } else {
+                row.classList.add('hidden');
+            }
+        });
+    });
+}
+
 getData()
