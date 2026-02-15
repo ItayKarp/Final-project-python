@@ -1,7 +1,7 @@
 const bookForm = document.getElementById('params-form')
 const confirmModel = document.getElementById('confirm-model');
-const confirmBtn = document.getElementById('confirm-update_service');
-const cancelBtn = document.getElementById('cancel-update_service');
+const confirmBtn = document.getElementById('confirm-update');
+const cancelBtn = document.getElementById('cancel-update');
 
 let currentBookData = null;
 
@@ -42,7 +42,7 @@ confirmBtn.addEventListener('click', async () => {
     confirmModel.style.display = 'none';
 
     try {
-        const response = await fetch(`/api/v1/books/${currentBookData.id}?type=update_details`, {
+        const response = await fetch(`/api/v1/books/${currentBookData.id}?type=update`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -65,7 +65,7 @@ confirmBtn.addEventListener('click', async () => {
             document.getElementById('params-form').reset();
         } else {
             const errorData = await response.json();
-            alert('Error: ' + (errorData.detail || 'Could not update_service book'));
+            alert('Error: ' + (errorData.detail || 'Could not update book'));
         }
     } catch (error) {
         console.error('Network error:', error);

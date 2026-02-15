@@ -62,7 +62,7 @@ dump.rdb
 *.code-workspace
 
 # JetBrains (IntelliJ, PyCharm, WebStorm, etc.)
-.idea/
+*.idea/
 *.iws
 *.iml
 *.ipr
