@@ -11,9 +11,9 @@ const skipVideo = () => {
         mainContent.style.display = 'block';
     }
 
-    // 3. Restore scrolling
-    document.body.style.overflow = 'auto';
-    document.documentElement.style.overflow = 'auto';
+    // 3. Keep body overflow hidden
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
 
     // Optional: Pause the video if it's still playing (for the Esc skip)
     video.pause();
@@ -28,9 +28,9 @@ video.addEventListener('ended', () => {
         mainContent.style.display = 'block';
     }
 
-    // 3. Restore scrolling to the body
-    document.body.style.overflow = 'auto';
-    document.documentElement.style.overflow = 'auto';
+    // 3. Keep body overflow hidden
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
 
 });
 // Listen for the "Escape" key press
@@ -49,24 +49,29 @@ async function getData(){
         }
 
         const json = await response.json()
-        console.log(json)
-        const tableBody = document.getElementById('dataTable')
+        const tableBody = document.querySelector('#dataTable tbody')
         for (const [key, value] of Object.entries(json)){
             const row = document.createElement('tr')
             const idCell = document.createElement('td')
             const titleCell = document.createElement('td')
             const authorCell = document.createElement('td')
+            const yearCell = document.createElement('td')
             const priceCell = document.createElement('td')
+            const quantityCell = document.createElement('td')
             const isAvailableCell = document.createElement('td')
-            idCell.textContent = key
+            idCell.textContent = parseInt(key) + 1
             titleCell.textContent = `${value['title']}`
             authorCell.textContent = `${value['author']}`
+            yearCell.textContent = `${value['year']}`
             priceCell.textContent = `${value['price']}$`
+            quantityCell.textContent = `${value['quantity']}`
             isAvailableCell.textContent = `${value['is_available']}`
             row.appendChild(idCell)
             row.appendChild(titleCell)
             row.appendChild(authorCell)
+            row.appendChild(yearCell)
             row.appendChild(priceCell)
+            row.appendChild(quantityCell)
             row.appendChild(isAvailableCell)
             tableBody.appendChild(row)
         }
@@ -76,4 +81,3 @@ async function getData(){
 
 }
 getData()
-

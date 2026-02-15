@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistics Graph - Karpov's Bookshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/templates/statistics/statistics_graphs/statistics_graphs.css">
+</head>
+<body data-stat-id="{{ stat_id }}" data-title="{{ title }}">
+
+    <div class="frame-container">
+
+        <div class="whiteboard">
+
+            <h1 id="graph-title" class="title">{{ graph_title }}</h1>
+            <div class="divider"></div>
+
+            <div class="graph-container">
+                {% if plot_filename %}
+                <img id="graph-image" src="/static/plots/{{ plot_filename }}" alt="{{ graph_title }}">
+                {% else %}
+                <p class="graph-error">No graph available for this metric.</p>
+                {% endif %}
+            </div>
+
+            <div class="button-container">
+                <button class="back-button" onclick="goBack()">← Back to Statistics</button>
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="/templates/statistics/statistics_graphs/statistics_graphs.js"></script>
+</body>
+</html>

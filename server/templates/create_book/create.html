@@ -6,34 +6,58 @@
     <link rel="stylesheet" href="templates/create_book/create.css">
 </head>
 <body>
-<div>
+    <!-- Video Intro -->
     <div id="video-intro">
-  <video autoplay muted playsinline preload="auto">
-    <source src="templates/create_book/create_book.mp4" type="video/mp4">
-    Your browser doesn't support HTML5 video.
-  </video>
-</div>
-<form id="create_form">
-    <label for="book_title">New Archive Entry</label>
+        <video autoplay muted playsinline preload="auto">
+            <source src="templates/create_book/create_book.mp4" type="video/mp4">
+            Your browser doesn't support HTML5 video.
+        </video>
+    </div>
 
-    <div class="book-parameters">
-        <input type="text" id="book_title" placeholder="Title" name="title" required>
+    <!-- Main Content (shown after video) -->
+    <div id="main-content">
+        <form id="create_form" onsubmit="return false;">
+            <label for="book_title">New Archive Entry</label>
+
+            <div class="book-parameters">
+                <input type="text" id="book_title" placeholder="Title" name="title" required>
+            </div>
+            <div class="book-parameters">
+                <input type="text" id="book_author" placeholder="Author" name="author" required>
+            </div>
+            <div class="book-parameters">
+                <input type="number" id="book_year" placeholder="1973" name='year' required>
+            </div>
+            <div class='book-parameters'>
+                <input type="number" id="book_price" placeholder="Price (0.00)" step="0.01" name="price" required>
+            </div>
+            <div class="book-parameters">
+                <input type="number" id="book_quantity" placeholder="500" name="quantity" required>
+            </div>
+            <div>
+                <button type="submit" id="create-button">Inscribe Book</button>
+            </div>
+        </form>
+
+        <div>
+            <button id="home-button" onclick="location.href='/'" type="button">Main Menu</button>
+        </div>
     </div>
-    <div class="book-parameters">
-        <input type="text" id="book_author" placeholder="Author" name="author" required>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Confirm Creation</h3>
+            <p>Are you certain you wish to inscribe this new volume in the archives?</p>
+            <div class="modal-actions">
+                <button type="button" id="cancel-create" class="modal-btn secondary">Cancel</button>
+                <button type="button" id="confirm-create" class="modal-btn primary">Confirm</button>
+            </div>
+        </div>
     </div>
-    <div class='book-parameters'>
-        <input type="number" id="book_price" placeholder="Price (0.00)" step="0.01" name="price" required>
-    </div>
-    <div>
-        <button id="create-button">Inscribe Book</button>
-    </div>
-</form>
-    <div>
-        <button id="home-button" onclick="location.href='/'" type="submit">Main Menu</button>
-    </div>
-</div>
-</div>
-<script src="templates/create_book/create.js"></script>
+
+    <div id="success-toast" class="success-toast">The volume has been inscribed.</div>
+
+    <script src="templates/create_book/create.js"></script>
 </body>
 </html>

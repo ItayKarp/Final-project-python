@@ -1,1 +1,2 @@
-from .books import router
+from .books_endpoints import book_router
+from .statistics_endpoints import statistics_router

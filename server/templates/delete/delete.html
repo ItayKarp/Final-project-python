@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Karpov's Bookshop - Discard</title>
+    <title>Karpov's Bookshop</title>
     <link rel="stylesheet" href="templates/delete/delete.css">
 </head>
 <body>
+
     <div id="video-intro">
         <video autoplay muted playsinline preload="auto">
             <source src="templates/delete/delete_book.mp4" type="video/mp4">
@@ -13,20 +14,34 @@
     </div>
 
     <div class="main-wrapper" id="main-content">
-    <div class="delete_container">
-        <h1 class="shop-title">Karpov's Bookshop</h1>
-        <p class="subtitle">Remove a volume from the archives</p>
+        <div class="delete_container">
+            <h1 class="shop-title">Karpov's Bookshop</h1>
+            <p class="subtitle">Remove a volume from the archives</p>
 
-        <form id="delete_form">
-            <div class="input-group">
-                <input type="number" id="delete_book" name="book_id" placeholder="Book ID Number" required>
-            </div>
-            <button type="submit" class="delete-btn">Exile from Storage</button>
-        </form>
+            <form id="delete_form">
+                <div class="input-group">
+                    <input type="number" id="delete_book" name="book_id" placeholder="Book ID Number" required>
+                </div>
+                <button type="submit" class="delete-btn">Exile from Storage</button>
+            </form>
 
-        <a href="/" class="menu-link">Return to Main Menu</a>
+            <a href="/" class="menu-link">Return to Main Menu</a>
+        </div>
     </div>
-</div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Confirm Exile</h3>
+            <p>Are you certain you wish to remove this volume from the archives?</p>
+            <div class="modal-actions">
+                <button type="button" id="cancel-delete" class="modal-btn secondary">Cancel</button>
+                <button type="button" id="confirm-delete" class="modal-btn primary">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="success-toast" class="success-toast">The volume has been removed.</div>
 
     <script src="templates/delete/delete.js"></script>
 </body>

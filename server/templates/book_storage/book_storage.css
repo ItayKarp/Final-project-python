@@ -3,9 +3,8 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100vh;
-  /* Use 'hidden' initially for the video, JS will switch it to 'auto' */
-  overflow: hidden;
+  height: 100vh;
+  overflow: hidden; /* Prevent page scrolling */
 }
 
 body {
@@ -33,75 +32,96 @@ body {
   object-fit: cover;
 }
 
-/* 3. The Centered Table Container */
+/* 3. Main Table Area */
 #table {
-    display: flex !important;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 15vh; /* Center it vertically relative to the shelf */
-    width: 100%;
-    position: relative;
-    z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10vh;
+  width: 100%;
+  height: 90vh; /* Prevents pushing page */
+  overflow: hidden;
 }
 
-/* 4. Old Book Aesthetic */
+/* 4. Scroll Window (ONLY this scrolls) */
+#table-scroll-container {
+  height: 70vh;           /* Fixed height */
+  overflow-y: auto;       /* Enable vertical scroll */
+  overflow-x: hidden;
+  border: 4px double #5d4037;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* Scrollbar styling */
+#table-scroll-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+#table-scroll-container::-webkit-scrollbar-thumb {
+  background: #5d4037;
+  border-radius: 5px;
+}
+
+/* 5. Table Styling */
 #dataTable {
-    border-collapse: collapse;
-    font-family: 'Georgia', serif;
-    background-color: rgba(245, 222, 179, 0.9); /* Parchment color */
-    color: #3e2723; /* Dark brown ink */
-    min-width: 700px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-    border: 4px double #5d4037;
+  font-family: 'Georgia', serif;
+  color: #3e2723;
+  width: 950px;
+  background-color: rgba(245, 222, 179, 0.9);
+  border-collapse: collapse;
+  table-layout: fixed; /* Prevent resizing issues */
 }
 
-#dataTable th {
-    background-color: #5d4037;
-    color: #f5deb3;
-    padding: 15px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+/* Sticky Header (Applied to TH for reliability) */
+#dataTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background-color: #5d4037;
+  color: #f5deb3;
+  padding: 15px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  border-bottom: 2px solid #3e2723;
 }
 
+/* Table Cells */
 #dataTable td {
-    padding: 12px 20px;
-    border-bottom: 1px solid rgba(62, 39, 35, 0.2);
-    text-align: center;
-    font-size: 1.1rem;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(62, 39, 35, 0.2);
+  text-align: center;
 }
-/* Container to position the button at the bottom right of the screen */
+
+/* 6. Fixed Menu Button */
 .button-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
 }
 
-/* The styled button */
 .menu-button {
-    background-color: #f3e5ab; /* Parchment/Tan color from the table */
-    color: #5d4037;            /* Dark brown text */
-    font-family: 'Serif', 'Palatino', 'Georgia', serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 10px 20px;
-    border: 3px solid #5d4037; /* Thick brown border like the table header */
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    text-decoration: none;      /* In case you keep it as an <a> tag */
-    display: inline-block;
-    transition: all 0.3s ease;
+  background-color: #f3e5ab;
+  color: #5d4037;
+  font-family: 'Serif', 'Palatino', 'Georgia', serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border: 3px solid #5d4037;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
-/* Hover effects for interactivity */
 .menu-button:hover {
-    background-color: #e5d392;
-    transform: translateY(-2px);
-    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6);
+  background-color: #e5d392;
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6);
 }
 
 .menu-button:active {
-    transform: translateY(1px);
+  transform: translateY(1px);
 }
