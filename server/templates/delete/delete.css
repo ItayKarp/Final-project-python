@@ -52,8 +52,17 @@ body {
     opacity: 0.8;
 }
 
+/* Input group - flex row for input and preview side by side */
 .input-group {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
     margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.input-wrapper {
+    flex: 1;
     width: 100%;
 }
 
@@ -69,6 +78,38 @@ input[type="number"] {
     text-align: center;
 }
 
+/* Book Preview Container Styling - positioned to the right */
+.book-preview {
+    display: none;
+    background: rgba(20, 15, 10, 0.95);
+    border: 1px solid #8e7341;
+    padding: 12px;
+    border-radius: 4px;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.85rem;
+    color: #e0d7c6;
+    min-width: 160px;
+    max-width: 180px;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.book-preview p {
+    margin: 4px 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.book-preview p:first-child {
+    margin-top: 0;
+    color: #c5a059;
+    font-weight: bold;
+}
+
+.book-preview p:last-child {
+    margin-bottom: 0;
+}
+
 .delete-btn {
     width: 100%;
     padding: 12px;
@@ -78,6 +119,11 @@ input[type="number"] {
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
+    font-family: 'EB Garamond', serif;
+}
+
+.delete-btn:hover {
+    background: #d4b06a;
 }
 
 .menu-link {
@@ -86,6 +132,12 @@ input[type="number"] {
     color: #c5a059;
     text-decoration: none;
     border: 1px solid rgba(197, 160, 89, 0.4);
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.menu-link:hover {
+    border-color: #c5a059;
 }
 
 #video-intro {
@@ -124,6 +176,14 @@ input[type="number"] {
     border: 1px solid #c5a059;
     text-align: center;
     max-width: 350px;
+    font-family: 'EB Garamond', serif;
+    color: #e0d7c6;
+}
+
+.modal-content h3 {
+    color: #c5a059;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 .modal-actions {
@@ -137,6 +197,10 @@ input[type="number"] {
     padding: 10px;
     border: 1px solid #c5a059;
     cursor: pointer;
+    font-family: 'EB Garamond', serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .modal-btn.primary {
@@ -144,9 +208,17 @@ input[type="number"] {
     color: #1a150f;
 }
 
+.modal-btn.primary:hover {
+    background: #d4b06a;
+}
+
 .modal-btn.secondary {
     background: transparent;
     color: #c5a059;
+}
+
+.modal-btn.secondary:hover {
+    background: rgba(197, 160, 89, 0.1);
 }
 
 .success-toast {
@@ -161,6 +233,8 @@ input[type="number"] {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
+    font-family: 'EB Garamond', serif;
+    z-index: 10002;
 }
 
 .success-toast.show {

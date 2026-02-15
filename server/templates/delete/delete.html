@@ -20,7 +20,19 @@
 
             <form id="delete_form">
                 <div class="input-group">
-                    <input type="number" id="delete_book" name="book_id" placeholder="Book ID Number" required>
+                    <div class="input-wrapper">
+                        <input type="number" id="delete_book" name="book_id" placeholder="Book ID Number" required>
+                    </div>
+                    <!-- Book Preview Container -->
+                    <div id="book-preview" class="book-preview">
+                        <p id="preview-id"></p>
+                        <p id="preview-title"></p>
+                        <p id="preview-author"></p>
+                        <p id="preview-year"></p>
+                        <p id="preview-price"></p>
+                        <p id="preview-quantity"></p>
+                        <p id="preview-availability"></p>
+                    </div>
                 </div>
                 <button type="submit" class="delete-btn">Exile from Storage</button>
             </form>

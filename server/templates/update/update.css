@@ -58,6 +58,13 @@ body {
   pointer-events: auto;
 }
 
+/* Book ID container - flex row to position input and preview side by side */
+#params-form > div:first-child {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
 /* Input styling - same as other pages */
 #params-form input {
   width: 100%;
@@ -81,6 +88,37 @@ body {
   background: rgba(243, 229, 171, 1);
   border-color: #3e2b1c;
   box-shadow: 0 0 8px rgba(62, 43, 28, 0.4);
+}
+
+/* Book Preview Container Styling - positioned to the right */
+.book-preview {
+  display: none;
+  background-color: #f3e5ab;
+  border: 3px solid #5d4037;
+  padding: 12px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  font-family: 'Georgia', serif;
+  font-size: 0.85rem;
+  color: #5d4037;
+  min-width: 180px;
+  max-width: 200px;
+  flex-shrink: 0;
+}
+
+.book-preview p {
+  margin: 4px 0;
+  padding: 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.book-preview p:first-child {
+  margin-top: 0;
+}
+
+.book-preview p:last-child {
+  margin-bottom: 0;
 }
 
 /* Update button styling */

@@ -2,8 +2,52 @@ const bookForm = document.getElementById('params-form')
 const confirmModel = document.getElementById('confirm-model');
 const confirmBtn = document.getElementById('confirm-update');
 const cancelBtn = document.getElementById('cancel-update');
+const bookIdInput = document.getElementById('book_id');
 
 let currentBookData = null;
+
+// Preview book details on blur from book_id input
+bookIdInput.addEventListener('blur', async () => {
+    const bookId = bookIdInput.value.trim();
+    const previewDiv = document.getElementById('book-preview');
+
+    if (!bookId) {
+        // Hide preview if input is empty
+        previewDiv.style.display = 'none';
+        return;
+    }
+
+    try {
+        const response = await fetch(`/api/v1/books/${parseInt(bookId)}`);
+
+        if (response.ok) {
+            const data = await response.json();
+            const book = data[0];
+
+            // Populate preview with book details
+            document.getElementById('preview-id').textContent = `ID: ${book['book_id']}`;
+            document.getElementById('preview-title').textContent = `Title: ${book['title']}`;
+            document.getElementById('preview-author').textContent = `Author: ${book['author']}`;
+            document.getElementById('preview-year').textContent = `Year: ${book['year']}`;
+            document.getElementById('preview-price').textContent = `Price: ${book['price']}$`;
+            document.getElementById('preview-quantity').textContent = `Quantity: ${book['quantity']}`;
+            document.getElementById('preview-availability').textContent = `Available: ${book['is_available'] === 1 ? 'Yes' : 'No'}`;
+
+            previewDiv.style.display = 'block';
+        } else {
+            previewDiv.style.display = 'none';
+        }
+    } catch (error) {
+        console.error('Error fetching book preview:', error);
+        previewDiv.style.display = 'none';
+    }
+});
+
+// Hide preview when user focuses back on the input
+bookIdInput.addEventListener('focus', () => {
+    const previewDiv = document.getElementById('book-preview');
+    previewDiv.style.display = 'none';
+});
 
 bookForm.addEventListener('submit', async (e) => {
     e.preventDefault(); // Prevents the page from reloading/redirecting
