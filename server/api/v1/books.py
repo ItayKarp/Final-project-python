@@ -1,6 +1,8 @@
 from fastapi import APIRouter
+from starlette.responses import StreamingResponse
+
 from server.services import get_books, get_book, create_book, update_details, delete_book
-from server.schemas import BookCreate, BookRead, BookUpdate,BookResponse,BookDeleteResponse
+from server.schemas import BookCreate, BookRead,BookResponse,BookDeleteResponse
 from typing import Dict, List
 
 router = APIRouter(
@@ -8,7 +10,7 @@ router = APIRouter(
     tags=["books"],
 )
 
-@router.get("/{book_id}", response_model=BookRead)
+@router.get("/{book_id}")
 async def get_book_details(book_id: int):
     return get_book(book_id)
 
@@ -24,7 +26,7 @@ async def create_new_book(book: BookCreate, type: str= None):
 
 
 @router.put("/{book_id}", response_model=BookResponse)
-async def update_book_details(book_id: int, book: BookUpdate, type: str= None):
+async def update_book_details(book_id: int, book: BookCreate, type: str= None):
     return update_details(book_id, book, type)
 
 

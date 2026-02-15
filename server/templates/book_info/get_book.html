@@ -15,8 +15,8 @@
 </div>
 <div id="id_format_container">
     <form id="id_format">
-        <label for="book_id" class="visually-hidden">Enter Book ID Number</label>
-        <input type="number" id="book_id" placeholder="ID Number">
+        <label for="book_id" class="visually-hidden" id="id_label"></label>
+        <input type="number" id="book_id" placeholder="ID Number" min="1" max="2000">
         <button type="submit">Search</button>
     </form>
 </div>
@@ -24,7 +24,9 @@
     <h2 id="header"></h2>
     <p id="title"></p>
     <p id="author"></p>
+    <p id="year"></p>
     <p id="price"></p>
+    <p id="quantity"></p>
     <p id="is_available"></p>
 </div>
     <div class="button-container">

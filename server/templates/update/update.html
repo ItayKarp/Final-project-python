@@ -24,7 +24,13 @@
       <input type="text" id="book-author" placeholder="JK Rolling" required>
     </div>
     <div class="book-params">
+      <input type="number" id="book-year" placeholder="1977" required>
+    </div>
+    <div class="book-params">
       <input type="number" id="book-price" placeholder="14.99$" step="0.01" required>
+    </div>
+    <div class="book-params">
+      <input type="number" id="book-quantity" placeholder="150" required>
     </div>
     <div>
       <button type="submit">Update</button>
@@ -32,6 +38,20 @@
   </form>
   <button id="home-button" onclick="window.location.href='/'">Main Menu</button>
 </div>
+
+<!-- Confirmation Model -->
+<div id="confirm-model" class="model-overlay">
+  <div class="model-content">
+    <h3>Confirm Update</h3>
+    <p>Are you certain you wish to update this volume in the archives?</p>
+    <div class="model-actions">
+      <button type="button" id="cancel-update" class="model-btn secondary">Cancel</button>
+      <button type="button" id="confirm-update" class="model-btn primary">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<div id="success-toast" class="success-toast">The volume has been updated.</div>
 <script src="templates/update/update.js"></script>
 </body>
 </html>

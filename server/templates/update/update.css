@@ -139,3 +139,91 @@ body {
 #home-button:active {
   transform: translateY(1px);
 }
+
+/* Success Toast Styling */
+.success-toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #1a150f;
+    color: #c5a059;
+    text-align: center;
+    border: 1px solid #c5a059;
+    padding: 16px;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10002; /* Ensure it stays above other elements */
+    font-family: 'Georgia', serif;
+}
+
+.success-toast.show {
+    visibility: visible;
+}
+
+/* Model Styles */
+.model-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 10001;
+    justify-content: center;
+    align-items: center;
+}
+
+.model-content {
+    background: #1a150f;
+    padding: 2.5rem;
+    border: 1px solid #c5a059;
+    text-align: center;
+    max-width: 350px;
+    font-family: 'Georgia', serif;
+    color: #e0d7c6;
+}
+
+.model-content h3 {
+    color: #c5a059;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.model-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 2rem;
+}
+
+.model-btn {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #c5a059;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.model-btn.primary {
+    background: #c5a059;
+    color: #1a150f;
+}
+
+.model-btn.primary:hover {
+    background: #d4b06a;
+}
+
+.model-btn.secondary {
+    background: transparent;
+    color: #c5a059;
+}
+
+.model-btn.secondary:hover {
+    background: rgba(197, 160, 89, 0.1);
+}

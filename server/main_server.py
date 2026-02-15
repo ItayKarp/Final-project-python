@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from pathlib import Path
 from fastapi.staticfiles import StaticFiles
-from server.services import initialize_library
 from server.api import router as book_router
 import os
 from fastapi.responses import FileResponse
@@ -45,12 +44,6 @@ def update_book():
 def delete_book():
     return FileResponse("templates/delete/delete.html")
 
-
-SERVER_PATH = Path(__file__).parent
-BOOKS_PATH = SERVER_PATH / "books"
-os.makedirs(BOOKS_PATH, exist_ok=True)
-
-initialize_library()
 
 app.include_router(
     book_router,

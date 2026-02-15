@@ -1,29 +1,78 @@
 const bookForm = document.getElementById('params-form')
+const confirmModel = document.getElementById('confirm-model');
+const confirmBtn = document.getElementById('confirm-update');
+const cancelBtn = document.getElementById('cancel-update');
+
+let currentBookData = null;
 
 bookForm.addEventListener('submit', async (e) => {
     e.preventDefault(); // Prevents the page from reloading/redirecting
 
-    const bookID = document.getElementById("book_id").value
+    const bookID = parseInt(document.getElementById("book_id").value)
     const bookTitle = document.getElementById("book-title").value
     const bookAuthor = document.getElementById("book-author").value
+    const bookYear = parseInt(document.getElementById('book-year').value)
+    const bookQuantity = parseInt(document.getElementById('book-quantity').value)
     const bookPrice = parseFloat(document.getElementById("book-price").value)
-    const dataForm = {
-        title: bookTitle,
-        author: bookAuthor,
-        price: bookPrice
+
+    // Store the book data for later use
+    currentBookData = {
+        id: bookID,
+        data: {
+            title: bookTitle,
+            author: bookAuthor,
+            year: bookYear,
+            price: bookPrice,
+            quantity: bookQuantity
+        }
     };
 
-    const response = await fetch(`/api/v1/books/${bookID}?type=update_details`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dataForm)
-    });
+    // Show confirmation model
+    confirmModel.style.display = 'flex';
+});
 
-    if (response.ok) {
-        console.log("Book updated successfully!");
+cancelBtn.addEventListener('click', () => {
+    confirmModel.style.display = 'none';
+    currentBookData = null;
+});
+
+confirmBtn.addEventListener('click', async () => {
+    if (!currentBookData) return;
+
+    confirmModel.style.display = 'none';
+
+    try {
+        const response = await fetch(`/api/v1/books/${currentBookData.id}?type=update_details`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(currentBookData.data)
+        });
+
+        if (response.ok) {
+            console.log("Book updated successfully!");
+
+            // Show success toast
+            const toast = document.getElementById("success-toast");
+            toast.className = "success-toast show";
+
+            setTimeout(() => {
+                toast.className = "success-toast";
+            }, 3000);
+
+            // Clear form
+            document.getElementById('params-form').reset();
+        } else {
+            const errorData = await response.json();
+            alert('Error: ' + (errorData.detail || 'Could not update book'));
+        }
+    } catch (error) {
+        console.error('Network error:', error);
+        alert('Network error occurred while updating the book');
     }
+
+    currentBookData = null;
 });
 
 const video = document.querySelector('#video-intro video');

@@ -11,9 +11,9 @@ const skipVideo = () => {
         mainContent.style.display = 'block';
     }
 
-    // 3. Restore scrolling
-    document.body.style.overflow = 'auto';
-    document.documentElement.style.overflow = 'auto';
+    // 3. Keep body overflow hidden
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
 
     // Optional: Pause the video if it's still playing (for the Esc skip)
     video.pause();
@@ -28,9 +28,9 @@ video.addEventListener('ended', () => {
         mainContent.style.display = 'block';
     }
 
-    // 3. Restore scrolling to the body
-    document.body.style.overflow = 'auto';
-    document.documentElement.style.overflow = 'auto';
+    // 3. Keep body overflow hidden
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
 
 });
 // Listen for the "Escape" key press
@@ -49,8 +49,7 @@ async function getData(){
         }
 
         const json = await response.json()
-        console.log(json)
-        const tableBody = document.getElementById('dataTable')
+        const tableBody = document.querySelector('#dataTable tbody')
         for (const [key, value] of Object.entries(json)){
             const row = document.createElement('tr')
             const idCell = document.createElement('td')
@@ -82,4 +81,3 @@ async function getData(){
 
 }
 getData()
-

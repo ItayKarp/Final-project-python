@@ -2,12 +2,11 @@ from pydantic import BaseModel
 class BookCreate(BaseModel):
     title : str
     author : str
+    year : int
     price : float | int
+    quantity : int
+    is_available : int = 1
 
-class BookUpdate(BaseModel):
-    title : str = ""
-    author : str = ""
-    price : float | int = 0
 
 class BookRead(BaseModel):
     book_id: int
