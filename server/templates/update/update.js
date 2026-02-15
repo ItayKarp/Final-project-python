@@ -1,7 +1,7 @@
 const bookForm = document.getElementById('params-form')
 const confirmModel = document.getElementById('confirm-model');
-const confirmBtn = document.getElementById('confirm-update');
-const cancelBtn = document.getElementById('cancel-update');
+const confirmBtn = document.getElementById('confirm-update_service');
+const cancelBtn = document.getElementById('cancel-update_service');
 
 let currentBookData = null;
 
@@ -65,7 +65,7 @@ confirmBtn.addEventListener('click', async () => {
             document.getElementById('params-form').reset();
         } else {
             const errorData = await response.json();
-            alert('Error: ' + (errorData.detail || 'Could not update book'));
+            alert('Error: ' + (errorData.detail || 'Could not update_service book'));
         }
     } catch (error) {
         console.error('Network error:', error);

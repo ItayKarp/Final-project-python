@@ -1,5 +1,0 @@
-ID:2
-Title:Aviv's Life
-Author:Aviv Ben Ezra
-Price:14.99
-Is_Available:True

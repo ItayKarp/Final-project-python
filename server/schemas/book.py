@@ -15,7 +15,7 @@ class BookRead(BaseModel):
     year: int
     price: float
     quantity: int
-    is_available: bool
+    is_available: int
 
 class BookResponse(BaseModel):
     status: str

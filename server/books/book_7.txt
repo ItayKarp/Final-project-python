@@ -1,5 +1,0 @@
-ID:7
-Title:The Lonely Tower
-Author:Noa Tsili Amriav
-Price:16.99
-Is_Available:True

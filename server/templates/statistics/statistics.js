@@ -1,30 +1,45 @@
-const video = document.querySelector('#video-intro video');
-const videoIntro = document.getElementById('video-intro');
-const mainContent = document.getElementById('main-content');
+document.addEventListener('DOMContentLoaded', function () {
 
-const skipVideo = () => {
-    // Hide the video overlay
-    videoIntro.style.display = 'none';
+    const video = document.querySelector('#video-intro video');
+    const videoIntro = document.getElementById('video-intro');
+    const mainContent = document.getElementById('main-content');
 
-    if (mainContent) {
-        mainContent.style.display = 'block';
+    const skipVideo = () => {
+        if (videoIntro) videoIntro.style.display = 'none';
+        if (mainContent) mainContent.style.display = 'flex';
+        document.body.style.overflow = 'auto';
+        if (video) video.pause();
+    };
+
+    if (video) {
+        video.addEventListener('ended', skipVideo);
     }
 
-    // RE-ENABLE scrolling now that the video is gone
-    document.body.style.overflow = 'auto';
+    window.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            skipVideo();
+        }
+    });
 
-    video.pause();
-};
+    document.body.style.overflow = 'hidden';
 
-// End video naturally
-video.addEventListener('ended', skipVideo);
+    // Button handlers
+    const statButtons = document.querySelectorAll('.stat-button');
 
-// Allow skipping with Escape key
-window.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        skipVideo();
-    }
+    statButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const statId = this.dataset.statId;
+            const statLabel = this.querySelector('.stat-label').textContent;
+
+            loadStatistic(statId, statLabel);
+        });
+    });
+
 });
 
-// Ensure scrolling is disabled while the video is playing
-document.body.style.overflow = 'hidden';
+
+function loadStatistic(statId, statLabel) {
+    // Redirect to graph page with stat_id in query string
+    window.location.href = `/statistics/result?stat_id=${statId}&title=${encodeURIComponent(statLabel)}`;
+}
+

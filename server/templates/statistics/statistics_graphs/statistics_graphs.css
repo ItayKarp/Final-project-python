@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Spectral:wght@400;500;600&display=swap');
+
+:root {
+    --ink: #2c2416;
+    --sepia: #8b7355;
+    --mahogany: #5d4037;
+    --gold: #c9a961;
+    --cream: #fdfcfa;
+    --wood: #6d5d4b;
+}
+
+/* Same background as statistics page */
+body {
+    margin: 0;
+    font-family: 'Spectral', serif;
+    background-image: url('../statistics.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Frame */
+.frame-container {
+    width: 90%;
+    max-width: 1200px;
+    background: var(--cream);
+    border: 20px solid var(--wood);
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.4),
+        inset 0 0 0 6px var(--cream),
+        inset 0 0 0 10px var(--mahogany);
+}
+
+.whiteboard {
+    padding: 3rem;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.3rem;
+    color: var(--mahogany);
+    margin-bottom: 0.5rem;
+}
+
+.divider {
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 1.5rem auto 3rem auto;
+}
+
+.graph-container {
+    padding: 2rem;
+    background: #f7f4ee;
+    border: 2px solid var(--sepia);
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+}
+
+.graph-container img {
+    max-width: 100%;
+    height: auto;
+    border: 4px solid var(--mahogany);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.graph-container .graph-error {
+    color: var(--mahogany);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.button-container {
+    margin-top: 2.5rem;
+}
+
+.back-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-family: 'Crimson Pro', serif;
+    background: linear-gradient(135deg, #8b7355, #a89378);
+    border: none;
+    cursor: pointer;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: linear-gradient(135deg, #a89378, #8b7355);
+    transform: translateY(-2px);
+}
