@@ -1,6 +1,6 @@
 # Karpov's Bookshop
 
-A full-stack **bookstore management system** built with FastAPI. The application provides complete CRUD operations for books, a modern web interface, and a rich **business analytics dashboard** with 10 different statistical visualizations driven by Matplotlib and Seaborn.
+A full-stack **bookstore management system** built with FastAPI. The application provides complete CRUD operations for books, a modern web interface, and a rich **business analytics dashboard** with 10 predefined statistical visualizations (see [Statistics & Analytics](#statistics--analytics)) generated with Matplotlib and Seaborn.
 
 ---
 
@@ -26,7 +26,7 @@ A full-stack **bookstore management system** built with FastAPI. The application
 - **Manage books** — Create, read, update, and delete books in inventory
 - **View inventory** — Browse all books in a table layout
 - **Look up details** — Fetch information for a specific book by ID
-- **Analyze business data** — Run 10 different statistics and view charts (average price by year, top authors, sales trends, revenue, reviews, etc.)
+- **Analyze business data** — Run 10 predefined statistics and view charts (average price by year, top authors by reviews, sales trends, revenue, review volume, and transaction distribution)
 
 The backend is built with **FastAPI** and stores data in **SQLite**. The frontend uses vanilla HTML, CSS, and JavaScript, with Jinja2 templates for dynamic content. Analytics are powered by **Pandas**, **Matplotlib**, and **Seaborn**.
 
@@ -58,7 +58,7 @@ CRUD FastAPI Frontend and Backend/
 │   │       └── statistics_endpoints.py # Statistics API
 │   ├── database/
 │   │   ├── __init__.py
-│   │   ├── databse.py                  # DB connection, loads books/sales/reviews/sale_details
+│   │   ├── databse.py                  # DB connection, loads books/sales/customer_reviews/sale_details
 │   │   └── bookstore.db                # SQLite database
 │   ├── schemas/
 │   │   ├── __init__.py
@@ -108,7 +108,7 @@ The app follows a layered design:
    - **statistics** — `reroute(question_id)` maps IDs 1–10 to chart-generating functions that return PNG filenames.
 
 4. **Data (database/, schemas/)**  
-   - `database/databse.py` connects to SQLite and loads `books`, `sales`, `reviews`, `sale_details` as Pandas DataFrames.  
+   - `database/databse.py` connects to SQLite and loads `books`, `sales`, `customer_reviews`, `sale_details` as Pandas DataFrames.  
    - `schemas/book.py` defines Pydantic models for request/response validation.
 
 5. **Frontend (templates/)**  
