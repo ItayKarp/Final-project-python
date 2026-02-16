@@ -151,7 +151,7 @@ The app follows a layered design:
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone github.com/ItayKarp/Final-project-python
 cd "CRUD FastAPI Frontend and Backend"
 
 # Create and activate a virtual environment
