@@ -4,12 +4,35 @@ document.addEventListener('DOMContentLoaded', function () {
     const videoIntro = document.getElementById('video-intro');
     const mainContent = document.getElementById('main-content');
 
+    const enableScroll = () => {
+        document.documentElement.classList.remove('no-scroll');
+        document.body.classList.remove('no-scroll');
+    };
+
+    const disableScroll = () => {
+        document.documentElement.classList.add('no-scroll');
+        document.body.classList.add('no-scroll');
+    };
+
     const skipVideo = () => {
         if (videoIntro) videoIntro.style.display = 'none';
         if (mainContent) mainContent.style.display = 'flex';
-        document.body.style.overflow = 'auto';
+
+        enableScroll();
+
         if (video) video.pause();
+
+        // Smooth scroll to top/main content after video ends
+        setTimeout(() => {
+            window.scrollTo({ 
+                top: 0, 
+                behavior: 'smooth' 
+            });
+        }, 100);
     };
+
+    // Disable scroll at start
+    disableScroll();
 
     if (video) {
         video.addEventListener('ended', skipVideo);
@@ -20,8 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
             skipVideo();
         }
     });
-
-    document.body.style.overflow = 'hidden';
 
     // Button handlers
     const statButtons = document.querySelectorAll('.stat-button');
@@ -37,9 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-
 function loadStatistic(statId, statLabel) {
-    // Redirect to graph page with stat_id in query string
     window.location.href = `/statistics/result?stat_id=${statId}&title=${encodeURIComponent(statLabel)}`;
 }
-

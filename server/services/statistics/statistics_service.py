@@ -53,7 +53,7 @@ def average_book_price_by_year():
         spine.set_linewidth(2)
 
     ax.set_xlabel("Year", fontsize=12, fontweight='bold', color='#3E2723', fontfamily='serif')
-    ax.set_ylabel("Price", fontsize=12, fontweight='bold', color='#3E2723', fontfamily='serif')
+    ax.set_ylabel("Price ($)", fontsize=12, fontweight='bold', color='#3E2723', fontfamily='serif')
     ax.set_title("Average book price by year", fontsize=14, fontweight='bold',
                  color='#3E2723', fontfamily='serif', pad=15)
 
@@ -143,7 +143,7 @@ def daily_sales_trend():
         spine.set_linewidth(2)
 
     ax.set_xlabel("Day", fontsize=12, fontweight='bold', color='#3E2723', fontfamily='serif')
-    ax.set_ylabel("Total Amount", fontsize=12, fontweight='bold', color='#3E2723', fontfamily='serif')
+    ax.set_ylabel("Total Amount ($)", fontsize=12, fontweight='bold', color='#3E2723', fontfamily='serif')
     ax.set_title(f"Daily sales trend - {latest_year} {month_name}", fontsize=14, fontweight='bold',
                  color='#3E2723', fontfamily='serif', pad=15)
 
@@ -225,7 +225,7 @@ def monthly_revenue_performance():
         spine.set_linewidth(2)
 
     ax.set_xlabel(latest_year, fontsize=12, fontweight='bold', color='#3E2723', fontfamily='serif')
-    ax.set_ylabel("Total Amount", fontsize=12, fontweight='bold', color='#3E2723', fontfamily='serif')
+    ax.set_ylabel("Total Amount ($)", fontsize=12, fontweight='bold', color='#3E2723', fontfamily='serif')
     ax.set_title("Monthly revenue", fontsize=14, fontweight='bold',
                  color='#3E2723', fontfamily='serif', pad=15)
 

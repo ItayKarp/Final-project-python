@@ -22,8 +22,8 @@
 html, body {
     width: 100%;
     min-height: 100vh;
-    overflow: hidden; /* disabled during intro */
 }
+
 
 body {
     font-family: 'Spectral', serif;
@@ -201,4 +201,7 @@ body {
     .whiteboard { padding: 3rem 2rem; }
     .title { font-size: 2rem; }
     .stats-grid { grid-template-columns: 1fr; }
+}
+.no-scroll {
+    overflow: hidden;
 }
