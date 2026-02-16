@@ -86,7 +86,7 @@ confirmBtn.addEventListener('click', async () => {
     confirmModel.style.display = 'none';
 
     try {
-        const response = await fetch(`/api/v1/books/${currentBookData.id}?type=update`, {
+        const response = await fetch(`/api/v1/books/${currentBookData.id}?type=update_details`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
