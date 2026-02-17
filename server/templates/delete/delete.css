@@ -4,7 +4,7 @@ html, body {
     width: 100%;
     height: 100%;
     font-family: 'EB Garamond', serif;
-    overflow: hidden;
+    overflow: auto;
 }
 
 body {
@@ -16,11 +16,6 @@ body {
     justify-content: center;
     align-items: center;
     color: #e0d7c6;
-}
-
-/* Hide content until video finishes */
-#main-content {
-    display: none;
 }
 
 .delete_container {
@@ -140,21 +135,6 @@ input[type="number"] {
     border-color: #c5a059;
 }
 
-#video-intro {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    z-index: 9999;
-}
-
-#video-intro video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 .modal-overlay {
     display: none;

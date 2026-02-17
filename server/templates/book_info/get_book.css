@@ -1,45 +1,19 @@
-#video-intro {
-  position: fixed; /* Fixed ensures it stays relative to the browser window */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #000;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#video-intro video {
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover; /* This makes sure the video covers the screen without stretching */
-}
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  /* Use 'hidden' initially for the video, JS will switch it to 'auto' */
-  overflow: hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden; /* Prevent scrolling during the intro */
-  background-color: #000;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .book-viewport {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-image: url('get_book.jpg');
     background-size: cover;
     background-position: center;
@@ -128,16 +102,6 @@ html, body {
     font-weight: bold;
     color: #5d4037;
     border: none; /* Ensure no borders/dots appear */
-}
-
-/* Intro Video Overlay stays fixed */
-#video-intro {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: #000;
-  z-index: 9999;
-  pointer-events: none; /* Don't block interaction with elements behind it */
 }
 
 /* Container to position the button at the bottom right of the screen */

@@ -1,21 +1,4 @@
-const video = document.querySelector('#video-intro video');
-const videoIntro = document.getElementById('video-intro');
-const mainContent = document.getElementById('main-content');
 const deleteBookInput = document.getElementById('delete_book');
-
-function skipVideo() {
-    videoIntro.style.display = 'none';
-    mainContent.style.display = 'block';
-    document.body.style.overflow = 'auto';
-    document.documentElement.style.overflow = 'auto';
-    video.pause();
-}
-
-video.addEventListener('ended', skipVideo);
-
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') skipVideo();
-});
 
 // Debounce timer for live preview
 let previewTimeout;
