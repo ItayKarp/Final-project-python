@@ -1,13 +1,12 @@
 import matplotlib
 import os
-
-from mpl_toolkits.mplot3d.art3d import rotate_axes
-
-from server.database import books,reviews,sales,sale_details
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 from typing import Dict, Callable
+
+from server.database import books,reviews,sales,sale_details
+
 matplotlib.use('agg')
 # server/ directory so plots save to server/static/plots (matches app when run from server/)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
