@@ -1,11 +1,11 @@
 from pathlib import Path
-
 from fastapi import FastAPI, Request
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+
 from server.api import book_router, statistics_router
 from server.services import reroute
-from fastapi.responses import FileResponse
 
 # Resolve plots dir relative to this file so save and serve use the same path
 _SERVER_DIR = Path(__file__).resolve().parent
@@ -21,15 +21,7 @@ app = FastAPI(
 )
 
 
-app.mount("/templates/home", StaticFiles(directory="templates/home"), name="home_templates")
-app.mount("/templates/book_storage", StaticFiles(directory="templates/book_storage"), name="book_storage_templates")
-app.mount("/templates/book_info", StaticFiles(directory="templates/book_info"), name="book_info_templates")
-app.mount("/templates/create_book", StaticFiles(directory="templates/create_book"), name="create_book_templates")
-app.mount("/templates/update", StaticFiles(directory="templates/update"), name="update_template_templates")
-app.mount("/templates/delete", StaticFiles(directory="templates/delete"), name="delete_template_templates")
-app.mount("/templates/statistics", StaticFiles(directory="templates/statistics"), name="statistics_templates")
-app.mount("/templates/statistics/statistics_graphs", StaticFiles(directory="templates/statistics/statistics_graphs"), name="statistics_graphs_templates")
-app.mount("/static/plots", StaticFiles(directory=str(PLOTS_DIR)), name="static_plots")
+app.mount("/templates", StaticFiles(directory="templates"), name="templates")
 
 @app.get("/")
 def home():
@@ -50,6 +42,10 @@ def create_book():
 @app.get("/update")
 def update_book():
     return FileResponse("templates/update/update.html")
+
+@app.get("/update")
+def update_book():
+    return "hello"
 
 @app.get("/delete")
 def delete_book():
